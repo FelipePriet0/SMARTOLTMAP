@@ -1,0 +1,52 @@
+Objeto
+
+Tipo ONU (Cadastro de modelos de ONUs suportados pelo sistema, utilizado para definir as capacidades e características técnicas de cada dispositivo)
+
+CTAs: 
+
+Adicionar tipo ONU → Abre o fluxo para cadastrar um novo modelo de ONU no sistema. 
+
+----------
+
+
+Informações exibidas (Lista)
+
+Tabela contendo todos os tipos de ONU cadastrados no sistema.
+
+Cada linha representa um modelo de equipamento e apresenta as seguintes colunas:
+
+Tipo PON
+Tecnologia PON suportada pelo equipamento (ex.: GPON).
+
+Canais
+Identificação do tipo de canal associado ao equipamento.
+
+Tipo ONU
+Nome ou modelo do equipamento ONU.
+
+Portas Ethernet
+Quantidade de portas Ethernet disponíveis no dispositivo.
+
+Wi-fi
+Quantidade de interfaces Wi-Fi suportadas pelo equipamento.
+
+Portas VoIP
+Quantidade de portas de telefonia IP disponíveis no dispositivo.
+
+CATV
+Indica se o equipamento possui suporte a serviço de TV por cabo.
+
+Permitir perfis personalizados
+Indica se o modelo de ONU permite aplicar perfis personalizados de configuração.
+
+Capacidade
+Define os modos de operação suportados pelo equipamento, como:
+
+Ponteamento (Bridge)
+
+Roteamento (Router)
+
+Ação
+
+Excluir → Remove o modelo de ONU do cadastro do sistema. (Action desse CTA deve passar por UMA etapa de confirmação). 
+

@@ -1,0 +1,15 @@
+Separar infraestrutura de rede de produto.
+
+Camada Rede
+
+integração com OLT
+engine de comandos
+coleta de telemetria
+templates por fabricante
+
+Camada Produto
+
+dashboard
+permissões
+logs
+integração CRM

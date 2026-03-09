@@ -1,0 +1,97 @@
+Objetivo
+
+Gerenciar os endereços IP utilizados para acesso e gerenciamento das ONUs conectadas à OLT.
+
+Esses endereços são utilizados pelo sistema para:
+
+acessar a interface de gerenciamento das ONUs
+
+executar comandos remotos
+
+aplicar configurações
+
+realizar diagnósticos
+
+Os IPs configurados aqui são utilizados como origem de comunicação entre o sistema e os dispositivos ONU.
+
+CTA da Página
++ Adicionar mais IPs de gerenciamento
+
+Abre o formulário para adicionar um novo endereço IP de gerenciamento de ONU.
+
+Função
+
+Permite registrar um endereço IP que será utilizado pelo sistema para acessar e gerenciar ONUs.
+
+O IP configurado normalmente corresponde a:
+
+gateway de gerenciamento
+
+interface VLAN de gerenciamento
+
+endereço IP da rede de gestão da OLT
+
+Estado da Página (quando não existem registros)
+
+Mensagem exibida:
+
+Não foram encontrados endereços IP de gerenciamento de ONU.
+
+Significado:
+
+Nenhum endereço IP de gerenciamento foi configurado para a OLT.
+
+Sem essa configuração, o sistema pode ter limitações para:
+
+acessar ONUs remotamente
+
+coletar informações avançadas das ONUs
+
+executar comandos remotos
+
+Comportamento esperado após adicionar IPs
+
+Após adicionar IPs de gerenciamento:
+
+os IPs passam a aparecer em uma tabela
+
+o sistema poderá utilizá-los para acessar ONUs
+
+podem ser utilizados para operações de gerenciamento remoto
+
+Estrutura lógica inferida
+
+Modelo de dados da funcionalidade:
+
+OLT
+ └ IPs de gerenciamento
+      ├ Endereço IP
+      ├ VLAN de gerenciamento
+      ├ Descrição
+      └ Status
+
+Esses IPs funcionam como interfaces de gerenciamento da rede GPON.
+
+Relação com outras abas
+
+Essa configuração interage diretamente com:
+
+ONUs
+Perfis TR069
+Provisionamento de ONU
+
+Porque o gerenciamento das ONUs depende de conectividade IP através dessas interfaces.
+
+Observação de engenharia reversa
+
+Essa aba revela que o sistema possui um mecanismo interno de acesso às ONUs via rede de gerenciamento, provavelmente utilizando:
+
+HTTP
+
+TR069
+
+Telnet
+
+SNMP
+
+dependendo do modelo da ONU.

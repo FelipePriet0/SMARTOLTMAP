@@ -1,0 +1,127 @@
+# Taxonomy — Project Structure (Full Analysis)
+
+## 1. Root Folder Map
+- `app/`
+  - Purpose: App Router entrypoint with route groups, layouts, pages, and co-located API routes.
+  - Files: `layout.tsx`, route group folders `(marketing)`, `(docs)`, `(dashboard)`, `(editor)`, `(auth)`, nested `page.tsx`, `layout.tsx`, `loading.tsx`, `not-found.tsx`; API handlers under `app/api/*/route.ts[x]`.
+  - Layer: Application/UI composition + server endpoints (App Router API).
+- `pages/api/`
+  - Purpose: Legacy Pages Router endpoint for NextAuth compatibility.
+  - Files: `auth/[...nextauth].ts`.
+  - Layer: Server (authentication handler).
+- `components/`
+  - Purpose: Feature components, layout scaffolds, MDX renderers, navigation, providers.
+  - Files: Feature components (e.g., `main-nav.tsx`, `header.tsx`, `editor.tsx`, `user-*`), providers (`theme-provider.tsx`, `ui/toaster.tsx`), MDX helpers.
+  - Layer: Presentation (feature) + cross-cutting client utilities.
+- `components/ui/`
+  - Purpose: Design-system primitives built atop Radix/shadcn ui patterns.
+  - Files: `button.tsx`, `dialog.tsx`, `dropdown-menu.tsx`, `input.tsx`, `toast.tsx`, etc., and `use-toast.ts`.
+  - Layer: Presentation (UI primitives).
+- `config/`
+  - Purpose: Centralized, typed configuration for navigation and site metadata.
+  - Files: `site.ts`, `marketing.ts`, `dashboard.ts`, `docs.ts`, `subscriptions.ts`.
+  - Layer: Configuration (structure/IA), not logic.
+- `content/`
+  - Purpose: MDX content sources consumed by Contentlayer for docs/blog/guides/pages.
+  - Files: `docs/*`, `blog/*`, `guides/*`, `authors/*`, `pages/*` MDX files.
+  - Layer: Content/data.
+- `hooks/`
+  - Purpose: Client-side UI/behavior hooks.
+  - Files: `use-lock-body.ts`, `use-mounted.ts`.
+  - Layer: Presentation utilities (client hooks).
+- `lib/`
+  - Purpose: Domain and infra utilities: auth, db, session, subscription, toc, validations, general utils.
+  - Files: `auth.ts`, `db.ts`, `session.ts`, `subscription.ts`, `toc.ts`, `utils.ts`, `stripe.ts`, `validations/*`.
+  - Layer: Server/domain (auth/db/subscription) + shared utilities (toc/utils/validations).
+- `prisma/`
+  - Purpose: Database schema and migrations.
+  - Files: `schema.prisma`, `migrations/*`.
+  - Layer: Data access (schema/infrastructure).
+- `styles/`
+  - Purpose: Global CSS, MDX styles, editor styles, Tailwind layers and tokens.
+  - Files: `globals.css`, `mdx.css`, `editor.css`.
+  - Layer: Styling/theme tokens.
+- `types/`
+  - Purpose: Type augmentations and shared types.
+  - Files: `index.d.ts`, `next-auth.d.ts`.
+  - Layer: Typing/contract layer.
+- `assets/` and `public/`
+  - Purpose: Fonts and static assets exposed to the app.
+  - Files: Local fonts, images, favicon, OG assets.
+  - Layer: Static assets.
+- Root configs
+  - Purpose: App configuration and build tooling.
+  - Files: `next.config.mjs`, `contentlayer.config.js`, `tailwind.config.js`, `postcss.config.js`, `env.mjs`, `.eslintrc.json`, `tsconfig.json`, etc.
+  - Layer: Build/runtime configuration.
+
+## 2. Layer Classification
+- Presentation: `components/ui`, `components/*` (feature UI), `app/*` pages/layouts (structure), `styles/*`.
+- Content: `content/*` (MDX), `contentlayer.config.js` (mapping/content pipeline).
+- Server/Domain: `lib/auth.ts`, `lib/db.ts`, `lib/session.ts`, `lib/subscription.ts`, `app/api/*/route.ts[x]`, `pages/api/auth/*`, `middleware.ts`.
+- Configuration: `config/*`, `env.mjs`, root configs.
+- Data/Infra: `prisma/*` (schema/migrations).
+- Utilities: `lib/utils.ts`, `lib/toc.ts`, `lib/validations/*`, `hooks/*` (client utilities).
+
+## 3. Folder Responsibilities
+- `app/`
+  - Routes and layouts: Compose UI using Server Components by default; mark interactivity with client components.
+  - Encapsulate section scaffolding via route groups (marketing, docs, dashboard, editor, auth).
+  - Co-locate server endpoints with features under `app/api/*/route.ts[x]` using Zod validations and domain libs.
+- `components/`
+  - Feature-level composition: Navigation (main/sidebar), headers/shells, editor, billing, user account menu, MDX wrappers.
+  - Providers: Theme and Toaster mounted from root layout; utilities like Analytics/TailwindIndicator.
+- `components/ui/`
+  - Reusable primitives that adhere to design tokens; headless behavior from Radix patterns; stable APIs across app.
+- `lib/`
+  - Server-side concerns: NextAuth configuration, Prisma client access, session utilities, subscription gating.
+  - Shared utilities: TOC generation for docs, formatting helpers, Zod schemas per domain.
+- `styles/`
+  - Theming via CSS variables for light/dark; Tailwind base/components/utilities; MDX code block styling.
+- `hooks/`
+  - Small, focused client-side hooks to manage UI behavior (mount state, body scroll lock).
+- `config/`
+  - Decouple information architecture (nav trees, site links) and plans/pricing from component implementations.
+- `content/`
+  - Authoritative source for docs/blog/guides; Contentlayer computes slugs and provides typed data to pages.
+- `prisma/`
+  - Source of truth for relational data models (auth, posts, Stripe fields) and migrations.
+- `pages/api/`
+  - Houses the NextAuth handler for compatibility while the rest of the app uses the App Router.
+
+## 4. Architectural Rules
+- Where UI components live:
+  - UI primitives: `components/ui/*`.
+  - Feature components: `components/*` (outside `ui`), often composed in layouts/pages.
+- Where feature components live:
+  - `components/*` (e.g., `main-nav`, `nav`, `header`, `shell`, `editor`, `billing-form`, `post-*`).
+- Where shared utilities live:
+  - `lib/utils.ts`, `lib/toc.ts`, `lib/validations/*`, `hooks/*` (client-only UI utilities), `config/*` for IA.
+- Where server logic lives:
+  - App Router API routes: `app/api/*/route.ts[x]` (validated with Zod, call into `lib/*`).
+  - Auth/session/domain: `lib/auth.ts`, `lib/session.ts`, `lib/subscription.ts`, `lib/db.ts`.
+  - Middleware: `middleware.ts` for route gating and redirects.
+  - NextAuth: `pages/api/auth/[...nextauth].ts`.
+- Where client hooks live:
+  - `hooks/*` (UI behavior), plus component-scoped hooks inside client components when appropriate.
+- Provider strategy:
+  - Mount cross-cutting providers once in `app/layout.tsx` (ThemeProvider, Toaster, Analytics); avoid global SessionProvider—resolve sessions server-side.
+- Navigation strategy:
+  - Config-driven nav in `config/*` rendered by `MainNav`, `DashboardNav`, and `DocsSidebarNav` to prevent duplication and enable IA changes via config.
+- Content strategy:
+  - All docs/blog/guides/pages authored in MDX under `content/*`; Contentlayer provides typed data and computed fields; MDX tags mapped to styled components for consistency.
+
+## 5. Anti-patterns Avoided by the Project
+- Mixing client/server responsibilities:
+  - Uses Server Components for data/auth and passes minimal props to client components for interactivity.
+- Global provider bloat:
+  - Only cross-cutting providers at root; no unnecessary context providers at app level (e.g., no global SessionProvider).
+- Hardcoded navigation and duplicated menus:
+  - Navigation is config-driven, rendered by generic components.
+- Scattered API logic:
+  - API handlers are co-located under `app/api` and call into centralized `lib/*` domain utilities; validations live in `lib/validations`.
+- Inconsistent content rendering:
+  - MDX uniformly rendered via `components/mdx-components` and `styles/mdx.css` with consistent typography and code styling.
+- Tight coupling between sections:
+  - Route groups provide isolated layouts and nav; shared primitives live in `components/ui` and `lib/*`.
+- Overuse of client state:
+  - Minimal local state; hooks are focused and colocated; server resolves most business state.

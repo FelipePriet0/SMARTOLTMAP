@@ -1,0 +1,29 @@
+Objeto
+
+Zona (Entidade utilizada para organizar e agrupar ONUs por localização, como cidade, bairro, região ou POP)
+
+Observação exibida
+
+Texto informativo explicando que zonas são apenas agrupamentos visuais, utilizados para organização das ONUs no sistema e não alteram as configurações técnicas da ONU.
+
+Inputs
+
+Procurar (Campo de busca para localizar zonas existentes pelo nome)
+
+CTAs
+
+Adicionar Zona → Abre o fluxo para criação de uma nova zona no sistema.
+
+Informações exibidas (Lista)
+
+Tabela contendo todas as zonas cadastradas no sistema.
+
+Cada linha apresenta:
+
+Nome
+Identificação da zona utilizada para agrupar ONUs por região.
+
+Ação
+
+Excluir → Remove a zona do sistema. (Action desse CTA deve passar por UMA etapa de confirmação). 
+

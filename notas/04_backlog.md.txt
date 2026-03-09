@@ -1,0 +1,23 @@
+Prioridade de features para construir seu sistema.
+
+
+MVP
+
+listar ONUs
+autorizar ONU
+ver sinal
+ver tráfego
+listar OLTs
+
+V1
+
+alarmes
+diagnóstico
+bloqueio automático
+relatórios
+
+V2
+
+IA de diagnóstico
+previsão de falhas
+auto-healing

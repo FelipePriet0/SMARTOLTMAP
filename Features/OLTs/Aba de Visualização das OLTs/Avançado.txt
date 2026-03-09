@@ -1,0 +1,209 @@
+Objetivo
+
+Exibir e gerenciar configurações avançadas da OLT relacionadas a:
+
+comportamento do provisionamento de ONUs
+
+segurança de rede
+
+controle de MAC
+
+filtragem de portas
+
+parâmetros de sinal óptico
+
+monitoramento de temperatura da OLT
+
+comportamento de VLANs avançadas
+
+Essas configurações influenciam o funcionamento global da rede GPON e normalmente são utilizadas por administradores experientes.
+
+CTA da Página
+Editar Avançado
+
+Abre o formulário de edição das configurações avançadas da OLT.
+
+Função:
+
+Permite alterar parâmetros globais que afetam o comportamento das ONUs e da própria OLT.
+
+Página: Editar Avançado
+Aviso do Sistema
+
+Mensagem exibida no formulário:
+
+Não habilite nem modifique essas opções a menos que você realmente entenda o que elas fazem.
+
+Isso indica que essas configurações impactam diretamente a operação da rede.
+
+Campos de Configuração
+Exibir ONUs desativadas pelo administrador em Não configurado
+
+Define se ONUs desativadas manualmente devem aparecer na lista de ONUs não configuradas.
+
+Valores possíveis:
+
+Sim
+Não
+Enviar descrição das ONUs para a configuração do OLT
+
+Define qual informação será enviada para o campo de descrição da ONU no equipamento.
+
+Opções observadas:
+
+Nome curto (apenas o nome)
+Meio (Nome, Endereço)
+Texto longo (Nome, Endereço, Zona etc.)
+Desativado
+
+Essa configuração controla o texto enviado para a OLT durante o provisionamento.
+
+Use a opção 82 do DHCP
+
+Habilita o uso da DHCP Option 82.
+
+Função:
+
+Permite identificar clientes através de informações inseridas pelo equipamento de rede.
+
+Campo Opção 82 do DHCP
+
+Define qual campo será utilizado para identificar o cliente via DHCP Option 82.
+
+Use a opção 82 do DHCP para gerenciamento
+
+Define se a DHCP Option 82 também será utilizada para a rede de gerenciamento das ONUs.
+
+Campo Opção 82 do DHCP para Gerenciamento
+
+Define o campo específico utilizado no DHCP Option 82 para identificar dispositivos na rede de gerenciamento.
+
+Use PPPoE-plus
+
+Habilita suporte ao protocolo PPPoE+.
+
+Esse modo estende o PPPoE tradicional com informações adicionais sobre o cliente.
+
+ONU IP source-guard
+
+Habilita proteção de IP nas ONUs.
+
+Função:
+
+Evita spoofing de IP na rede.
+
+Use max-mac-learn
+
+Ativa limitação de aprendizado de MAC nas portas das ONUs.
+
+Número máximo de MACs permitidos na porta virtual da internet por ONU
+
+Define quantos dispositivos podem utilizar a conexão da ONU.
+
+Exemplo observado:
+
+5
+
+Isso evita que usuários conectem switches ou múltiplos roteadores.
+
+Use a lista de permissões do MAC
+
+Habilita uma lista de MACs permitidos para acesso à rede.
+
+Use a lista suspensa MAC
+
+Ativa uma lista de MACs bloqueados.
+
+Dispositivos presentes nessa lista não poderão acessar a rede.
+
+Use ACLs de filtragem de portas
+
+Ativa regras de filtragem de portas de rede.
+
+ACL de filtragem de portas
+
+Define regras específicas de filtragem de tráfego nas portas.
+
+Nível de sinal RX "aviso" (dBm)
+
+Define o nível de sinal óptico em que o sistema deve emitir um aviso.
+
+Valor observado:
+
+-30 dBm
+Nível de sinal RX "crítico" (dBm)
+
+Define o nível de sinal óptico considerado crítico.
+
+Valor observado:
+
+-32 dBm
+
+Quando atingido, pode indicar:
+
+problema na fibra
+
+conector danificado
+
+distância excessiva
+
+Hosts IP separados para VoIP/Gerenciamento
+
+Define se VoIP e gerenciamento devem usar hosts IP separados.
+
+Nível de temperatura OLT "aviso" (°C)
+
+Temperatura em que o sistema gera alerta.
+
+Valor observado:
+
+45°C
+Nível de temperatura OLT "crítico" (°C)
+
+Temperatura considerada crítica para o equipamento.
+
+Valor observado:
+
+55°C
+Use a opção CVLAN-ID
+
+Ativa uso de Customer VLAN ID.
+
+Utilizado em cenários de VLAN stacking.
+
+Use a opção SVLAN-ID
+
+Ativa uso de Service VLAN ID.
+
+Também utilizado em redes com Q-in-Q VLAN.
+
+CTAs da Página
+Salvar
+
+Salva as alterações realizadas nas configurações avançadas.
+
+Resultado esperado:
+
+os parâmetros passam a ser aplicados na OLT
+
+o comportamento da rede passa a seguir as novas regras configuradas.
+
+Cancelar
+
+Cancela as alterações e retorna à página Avançado sem salvar mudanças.
+
+Estrutura lógica inferida
+
+Essa funcionalidade revela um módulo global de configuração avançada da OLT.
+
+Modelo inferido:
+
+OLT
+ └ Configuração avançada
+      ├ Provisionamento de ONU
+      ├ Segurança de rede
+      ├ Controle de MAC
+      ├ DHCP avançado
+      ├ Monitoramento óptico
+      ├ Monitoramento térmico
+      └ Configuração de VLAN avançada

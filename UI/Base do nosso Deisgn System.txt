@@ -1,0 +1,19 @@
+Base
+
+shadcn/ui
+
+Arquitetura
+
+taxonomy
+
+dashboard
+
+shadcn-admin
+
+componentes premium
+
+magicui + originui
+
+tokens
+
+tweakcn

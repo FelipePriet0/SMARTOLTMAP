@@ -1,0 +1,38 @@
+Objeto
+
+Perfil de velocidade (Cadastro de perfis utilizados para definir limites de banda aplicados às ONUs)
+
+CTAs
+
+Adicionar perfil de velocidade → Abre o fluxo para criar um novo perfil de velocidade no sistema.
+
+Informações exibidas (Lista)
+
+Tabela contendo todos os perfis de velocidade cadastrados no sistema.
+
+Cada linha representa um perfil e apresenta as seguintes colunas:
+
+Nome
+Identificação do perfil de velocidade (ex.: 10M, 100M, 1G).
+
+Para
+Indica o tipo de serviço ou destino ao qual o perfil pode ser aplicado.
+
+Use prefixo e sufixo
+Indica se o sistema utiliza prefixo e sufixo no nome do perfil ao aplicá-lo na configuração da ONU.
+
+Velocidade
+Valor de limite de banda configurado para o perfil, exibido em kbps.
+
+Tipo
+Tipo de serviço ao qual o perfil está associado (ex.: Internet).
+
+Padrão
+Indica se o perfil está definido como perfil padrão do sistema.
+
+Ônus
+Quantidade de ONUs atualmente utilizando esse perfil de velocidade.
+
+Ação
+
+Excluir → Remove o perfil de velocidade do sistema. (Action desse CTA deve passar por UMA etapa de confirmação). 

@@ -1,0 +1,52 @@
+Objeto
+
+OLT (Cadastro e gerenciamento dos equipamentos OLT conectados ao sistema de monitoramento e provisionamento da rede GPON)
+
+CTAs
+
+Adicionar OLT
+Abre o fluxo para cadastrar uma nova OLT no sistema, informando parâmetros de conexão e identificação do equipamento.
+
+Lista de OLTs para exportação
+Permite gerar e exportar uma listagem das Volts cadastradas no sistema.
+
+Informações exibidas (Lista)
+
+Tabela contendo todas as OLTs cadastradas e integradas ao sistema.
+
+Cada linha representa uma OLT e apresenta as seguintes colunas:
+
+Visualizar
+CTA “Visualizar” que abre a página de gerenciamento da OLT selecionada.
+
+ID / EUIA
+Identificador interno da OLT no sistema.
+
+Nome
+Nome configurado para identificação da OLT.
+
+OLT IP
+Endereço IP utilizado para comunicação entre o sistema e a OLT.
+
+TCP
+Porta TCP utilizada para conexão com o equipamento.
+
+UDP
+Porta UDP utilizada para comunicação com a OLT.
+
+Versão de hardware OLT
+Modelo ou versão de hardware do equipamento OLT.
+
+Versão de software OLT
+Versão do firmware ou software em execução na OLT.
+
+Ação
+
+Desativar OLT
+CTA (botão cinza) que desativa temporariamente a OLT no sistema, interrompendo o monitoramento e operações associadas ao equipamento.
+
+Excluir
+CTA que remove a OLT do cadastro do sistema.
+
+Ambos ctas passam por uma etapa de confirmação: Realmente deseja desativar / Realmente deseja Excluir
+

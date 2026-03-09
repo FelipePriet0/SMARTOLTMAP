@@ -1,0 +1,39 @@
+# Inventário da API — SmartOLT
+
+Fonte dos dados:
+- HAR capturado do painel SmartOLT
+- 2.403 requisições analisadas
+- 67 endpoints únicos identificados
+
+## Módulos da API identificados
+
+onu — 25 endpoints
+olt — 6 endpoints
+dashboard — 5 endpoints
+reports — 5 endpoints
+graphs_olt — 4 endpoints
+system — 3 endpoints
+traffic — 3 endpoints
+diagnostics — 2 endpoints
+odbs — 2 endpoints
+onu_authorization_presets — 2 endpoints
+uplink — 2 endpoints
+export — 1 endpoint
+general — 1 endpoint
+graphs — 1 endpoint
+locations — 1 endpoint
+onu_authorization — 1 endpoint
+onu_types — 1 endpoint
+signal — 1 endpoint
+speed_profiles — 1 endpoint
+
+## Total
+
+19 módulos
+67 endpoints únicos
+
+## Observações
+
+- O módulo **ONU** representa o núcleo do sistema.
+- Grande parte da lógica gira em torno de gerenciamento de ONUs e monitoramento da rede.
+- O sistema também possui módulos de diagnóstico, relatórios e monitoramento de tráfego.

@@ -1,0 +1,109 @@
+Objeto
+
+OLT (Página de visualização e gerenciamento das configurações e estado operacional de uma OLT cadastrada no sistema)
+
+Navegação
+
+Abas disponíveis para gerenciamento da OLT:
+
+Detalhes da OLT → Exibe as configurações gerais do equipamento.
+
+Cartões OLT → Gerenciamento das placas instaladas na OLT. 
+
+Portas PON → Gerenciamento das portas PON do equipamento.
+
+Uplink → Configuração das interfaces de uplink da OLT.
+
+VLANs → Gerenciamento das VLANs configuradas na OLT.
+
+IPs de gerenciamento da ONU → Configuração de IPs utilizados para gerenciamento das ONUs.
+
+ACLs remotas → Configuração de regras de controle de acesso remoto.
+
+Perfis VoIP → Gerenciamento de perfis de telefonia IP utilizados pelas ONUs.
+
+Avançado → Configurações avançadas da OLT.
+
+CTAs
+
+Voltar à lista de OLTs 
+Retorna à página de listagem de OLTs cadastradas no sistema.
+
+Editar configurações do OLT
+
+Abre o modo de edição das configurações da OLT, que é o mesmo de: Adicionar OLT porém com as infos da OLT já preenchidas, prontas para serem editadas 
+
+Veja o histórico
+
+Exibe o histórico de eventos e alterações relacionadas à OLT. 
+
+CLI
+
+Abre acesso ao terminal CLI para execução de comandos diretamente na OLT.
+
+Cópias de segurança da configuração
+
+Permite acessar ou gerenciar backups das configurações da OLT.
+
+Informações exibidas (Configuração OLT) 
+
+Tabela contendo os principais parâmetros de configuração da OLT:
+
+Nome
+
+Identificação da OLT no sistema.
+
+OLT IP
+Endereço IP utilizado para comunicação com o equipamento.
+
+Acessível via túnel VPN
+Indica se a OLT está acessível através de conexão VPN.
+
+Porta TCP Telnet
+Porta utilizada para conexão Telnet com a OLT.
+
+Nome de usuário Telnet do OLT
+Credencial de usuário utilizada para autenticação Telnet. (Toggle de visibilidade da senha)
+
+Senha Telnet do OLT
+Credencial de senha utilizada para autenticação Telnet. (Toggle de visibilidade da senha)
+
+Comunidade SNMP somente leitura
+String SNMP utilizada para consultas de leitura. (Toggle de visibilidade da senha)
+
+Comunidade SNMP de leitura e escrita
+String SNMP utilizada para operações de leitura e gravação. (Toggle de visibilidade da senha)
+
+Porta SNMP UDP
+Porta utilizada para comunicação SNMP com o equipamento.
+
+Módulo IPTV
+Indica se o suporte a IPTV está habilitado na OLT.
+
+Versão de hardware OLT
+Modelo de hardware do equipamento.
+
+Versão de software OLT
+Versão do firmware detectada no equipamento.
+
+Tipos de PON suportados
+Tecnologias PON suportadas pela OLT.
+
+Perfil TR069
+Permite associar um perfil TR069 para gerenciamento remoto das ONUs conectadas à OLT.
+
+Controles associados ao Perfil TR069
+
+Definir perfis → Aplica o perfil TR069 selecionado à OLT.
+
+Gerenciar perfis TR069 → Abre a página de gerenciamento de perfis TR069.
+
+Informações operacionais
+
+Imagem do equipamento exibindo o modelo da OLT.
+
+Fabricante (ex.: Huawei).
+
+Tempo de atividade da OLT (uptime).
+
+Temperatura atual do equipamento.

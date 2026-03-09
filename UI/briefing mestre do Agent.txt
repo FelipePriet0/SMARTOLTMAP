@@ -1,0 +1,154 @@
+Objetivo
+
+“Criar um Design System consistente para uma aplicação SaaS/admin com base em shadcn.”
+
+Stack
+
+Next.js
+
+TypeScript
+
+Tailwind
+
+shadcn/ui
+
+Fontes oficiais
+
+shadcn/ui = componentes base
+
+taxonomy = arquitetura
+
+shadcn-admin = dashboard patterns
+
+tweakcn = theme/tokens
+
+originui = blocos refinados
+
+magicui = efeitos premium seletivos
+
+Regras
+
+não duplicar componente já existente no shadcn
+
+não criar variações visuais desnecessárias
+
+priorizar simplicidade e consistência
+
+usar animação só onde aumenta percepção de qualidade
+
+evitar excesso de glow, blur, gradients e motion
+
+mobile-first
+
+acessibilidade obrigatória
+
+dark mode preparado desde o início
+
+Entregáveis
+
+tokens
+
+components/ui
+
+components/shared
+
+components/layout
+
+patterns
+
+documentation
+
+Etapa 1 — tokens
+
+Definir:
+
+color system
+
+spacing
+
+radius
+
+shadows
+
+typography
+
+icon sizes
+
+Etapa 2 — primitives
+
+Criar ou padronizar:
+
+button
+
+input
+
+textarea
+
+select
+
+checkbox
+
+switch
+
+badge
+
+card
+
+dialog
+
+sheet
+
+table
+
+tabs
+
+Etapa 3 — layout system
+
+Criar:
+
+app shell
+
+sidebar
+
+topbar
+
+page header
+
+section header
+
+content container
+
+Etapa 4 — patterns
+
+Criar:
+
+list page
+
+detail page
+
+form page
+
+empty state
+
+loading state
+
+error state
+
+delete confirmation
+
+filter bar
+
+search bar
+
+Etapa 5 — premium layer
+
+Adicionar só onde fizer sentido:
+
+efeitos leves
+
+microinterações
+
+estados de hover melhores
+
+toques premium em marketing ou dashboards principais
+

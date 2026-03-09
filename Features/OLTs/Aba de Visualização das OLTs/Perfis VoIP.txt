@@ -1,0 +1,191 @@
+Objetivo
+
+Gerenciar perfis de configuração VoIP utilizados pelas ONUs que possuem portas telefônicas (FXS).
+
+Esses perfis definem os parâmetros de comunicação SIP necessários para que as ONUs se registrem em servidores de telefonia.
+
+A configuração permite provisionar automaticamente nas ONUs:
+
+servidores SIP
+
+portas de comunicação
+
+domínio SIP
+
+servidores DNS
+
+parâmetros de sinalização VoIP
+
+Esses perfis podem ser aplicados posteriormente durante o provisionamento das ONUs.
+
+CTA da Página
+Adicionar perfil VoIP
+
+Abre o formulário para criação de um novo perfil VoIP.
+
+Função:
+
+Permite configurar os parâmetros de telefonia IP que serão aplicados às ONUs.
+
+Estado da Página (quando não existem perfis)
+
+Mensagem exibida:
+
+Nenhum perfil VoIP encontrado
+
+Significa que ainda não existem perfis de configuração VoIP registrados no sistema.
+
+Página: Adicionar perfil VoIP
+Objetivo
+
+Criar um perfil VoIP contendo todos os parâmetros necessários para que uma ONU se registre em um servidor SIP.
+
+Esse perfil poderá ser aplicado posteriormente às ONUs que possuem suporte a VoIP.
+
+Campos do Formulário
+Tipo PON
+
+Define a tecnologia PON associada ao perfil.
+
+Opções observadas:
+
+GPON
+EPON
+
+Esse campo determina a compatibilidade do perfil com os tipos de ONU utilizados na rede.
+
+Nome do perfil
+
+Nome identificador do perfil VoIP.
+
+Exemplo de uso:
+
+VoIP-Padrao
+Perfil-SIP-Central
+Telefonia-Residencial
+
+Esse nome será utilizado na seleção do perfil durante o provisionamento da ONU.
+
+Servidor de registro
+
+Endereço do servidor SIP responsável pelo registro das ONUs.
+
+Pode ser:
+
+endereço IP
+
+domínio
+
+Exemplo:
+
+sip.provedor.com
+192.168.1.10
+Porta do servidor de registro
+
+Porta utilizada para comunicação com o servidor SIP.
+
+Valor padrão observado:
+
+5060
+Servidor proxy
+
+Endereço do servidor proxy SIP.
+
+Função:
+
+Intermediar o tráfego de sinalização entre a ONU e o servidor SIP.
+
+Porta do servidor proxy
+
+Porta de comunicação do servidor proxy.
+
+Valor padrão observado:
+
+5060
+Servidor de saída
+
+Servidor utilizado para encaminhamento de chamadas externas.
+
+Também conhecido como:
+
+Outbound Proxy
+Porta de saída do servidor
+
+Porta utilizada para comunicação com o servidor de saída.
+
+Valor padrão observado:
+
+5060
+Domínio do agente de usuário
+
+Domínio SIP utilizado pelo agente VoIP da ONU.
+
+Exemplo:
+
+sip.provedor.com
+voip.empresa.local
+
+Esse valor é utilizado durante o processo de autenticação SIP.
+
+DNS primário
+
+Servidor DNS utilizado pela ONU para resolver domínios SIP.
+
+Exemplo:
+
+8.8.8.8
+192.168.0.1
+DNS secundário
+
+Servidor DNS alternativo utilizado pela ONU.
+
+Esse servidor será utilizado caso o DNS primário esteja indisponível.
+
+Porta UDP
+
+Porta UDP utilizada para comunicação SIP.
+
+Valor padrão observado:
+
+5060
+CTAs da Página
+Salvar
+
+Salva o perfil VoIP no sistema.
+
+Resultado esperado:
+
+o perfil passa a aparecer na lista de perfis VoIP
+
+o perfil poderá ser aplicado às ONUs compatíveis
+
+Cancelar
+
+Cancela a criação do perfil e retorna à página de Perfis VoIP sem salvar alterações.
+
+Estrutura lógica inferida
+
+A funcionalidade revela o seguinte modelo de dados:
+
+OLT
+ └ Perfis VoIP
+      ├ Nome do perfil
+      ├ Tipo PON
+      ├ Servidor SIP
+      ├ Servidor proxy
+      ├ Servidor de saída
+      ├ Domínio SIP
+      ├ DNS primário
+      ├ DNS secundário
+      └ Porta SIP
+
+Relação com outras funcionalidades
+
+Essa configuração interage diretamente com:
+
+Provisionamento de ONU
+Perfis de serviço
+Configuração de portas FXS das ONUs
+
+porque os perfis VoIP são aplicados às ONUs que possuem telefonia.
+

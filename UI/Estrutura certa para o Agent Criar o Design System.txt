@@ -1,0 +1,140 @@
+Estrutura certa para o Agent
+
+Você vai transformar esses repos em fontes oficiais de decisão:
+
+1. shadcn/ui = fonte base
+
+O Agent usa para:
+
+primitives
+
+acessibilidade
+
+variantes base
+
+estrutura dos componentes ui/*
+
+É a sua fonte de verdade para:
+
+button
+
+input
+
+select
+
+dialog
+
+sheet
+
+tabs
+
+table
+
+badge
+
+card
+O repo oficial é MIT e é literalmente a base proposta pelo projeto.
+
+2. taxonomy = fonte de arquitetura
+
+O Agent usa para:
+
+organização de pastas
+
+separação entre components, lib, app, features
+
+composição de páginas reais
+
+padrões de layout de app
+O Taxonomy é um app open source em Next.js criado justamente como referência arquitetural.
+
+3. shadcn-admin = fonte de dashboard
+
+O Agent usa para:
+
+sidebar
+
+header
+
+tabelas
+
+filtros
+
+paginação
+
+páginas de admin
+
+UX de dashboard
+Esse repo é MIT, tem uso claro como admin dashboard e continua sendo atualizado.
+
+4. magicui = fonte premium
+
+O Agent usa para:
+
+microinterações
+
+componentes de destaque
+
+efeitos visuais seletivos
+
+hero sections e blocos premium
+Mas aqui vai minha opinião sincera: use com moderação. Magic UI é ótimo para valor percebido, mas ele estraga fácil um produto se virar enfeite demais. O próprio repo é focado em componentes animados e efeitos.
+
+5. originui = fonte de composição refinada
+
+O Agent usa para:
+
+patterns visuais
+
+layouts mais polidos
+
+blocos de interface reutilizáveis
+
+6. tweakcn = fonte de tokens
+
+O Agent usa para:
+
+cores
+
+radius
+
+theme mapping
+
+design tokens do sistema
+A função dele não é estruturar telas; é ajudar a fechar consistência visual.
+
+
+
+Repos que o Agent deve ler
+
+shadcn-ui/ui
+
+shadcn-ui/taxonomy
+
+satnaing/shadcn-admin
+
+magicuidesign/magicui
+
+origin-space/origin-ui
+
+tweakcn/tweakcn
+
+
+hierarquia de autoridade
+
+Essa hierarquia serve para dizer ao Agent code quem vence num Conflito: 
+
+Ordem de prioridade
+
+shadcn/ui → verdade dos componentes base
+
+taxonomy → verdade da arquitetura
+
+shadcn-admin → verdade dos padrões de dashboard
+
+tweakcn → verdade dos tokens/tema
+
+originui → referência visual de composição
+
+magicui → opcional para premium, nunca como base
+

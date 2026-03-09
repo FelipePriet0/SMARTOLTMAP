@@ -1,0 +1,67 @@
+Objeto
+
+ONU (Formulário utilizado para autorizar e provisionar uma nova ONU detectada na rede GPON)
+
+Inputs
+
+Usar predefinição (Checkbox que permite aplicar um perfil de autorização previamente configurado)
+
+Predefinição (Dropdown contendo perfis de autorização rápida para ONUs)
+
+Adicionar predefinição (Botão + para criar uma nova predefinição de autorização)
+
+OLT (Dropdown com lista de OLTs disponíveis no sistema)
+
+Tipo PON (Seleção do tipo de tecnologia PON utilizada)
+
+GPON
+
+EPON
+
+Canal GPON (Seleção do tipo de canal utilizado)
+
+GPON
+
+XG-PON
+
+XGS-PON
+
+Quadro (Campo indicando o slot/board da OLT onde a ONU está conectada)
+
+Porta (Campo indicando a porta PON da OLT)
+
+SN (Serial Number da ONU detectada)
+
+Tipo ONU (Dropdown contendo os modelos de ONU cadastrados no sistema)
+
+Usar perfil personalizado (Checkbox que permite aplicar um perfil específico de configuração para ONUs genéricas)
+
+Modo ONU (Define o modo de operação da ONU)
+
+Ponte (Bridge)
+
+ID da VLAN do usuário (Dropdown contendo as VLANs disponíveis para o serviço do cliente)
+
+Zona (Dropdown contendo as zonas cadastradas para organização geográfica ou operacional)
+
+ODB (Divisor) (Dropdown contendo os divisores ópticos cadastrados)
+
+Porta ODB (Dropdown contendo as portas disponíveis do divisor óptico selecionado)
+
+Velocidade de download (Dropdown contendo os perfis de velocidade disponíveis)
+
+Velocidade de upload (Dropdown contendo os perfis de velocidade disponíveis)
+
+Nome (Campo para identificação do cliente ou instalação)
+
+Endereço ou comentário (Campo para registrar endereço ou observações sobre a instalação)
+
+ID externo da ONU (Campo utilizado para integração com sistemas externos, como faturamento ou API)
+
+Usar GPS (Checkbox que permite registrar coordenadas geográficas da instalação)
+
+CTAs
+
+Salvar → Autoriza e provisiona a ONU na rede aplicando as configurações definidas.
+
+Cancelar → Cancela o processo de autorização da ONU.

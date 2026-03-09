@@ -1,0 +1,196 @@
+# Entidades Principais do Sistema
+
+Este documento define as entidades centrais do sistema de gerenciamento de rede (SmartOLT-like).
+
+As entidades representam os principais objetos do domínio da aplicação.
+
+---
+
+# 1. OLT
+
+Representa um equipamento OLT na rede GPON.
+
+Responsabilidades:
+
+- Gerenciar portas PON
+- Coletar métricas de hardware
+- Controlar ONUs conectadas
+
+Relacionamentos:
+
+OLT
+└── possui várias PON_PORTS
+└── possui várias ONUs
+└── possui métricas de saúde (CPU, memória, temperatura)
+└── possui uplinks monitorados
+
+---
+
+# 2. PON_PORT
+
+Representa uma porta PON dentro de uma OLT.
+
+Responsabilidades:
+
+- Conectar ONUs
+- Monitorar tráfego agregado
+- Monitorar status da porta
+
+Relacionamentos:
+
+PON_PORT
+└── pertence a uma OLT
+└── possui várias ONUs
+
+---
+
+# 3. ONU
+
+Representa um equipamento terminal do cliente.
+
+Responsabilidades:
+
+- Conectar cliente final
+- Receber perfil de velocidade
+- Enviar telemetria de sinal e tráfego
+
+Relacionamentos:
+
+ONU
+└── pertence a uma OLT
+└── pertence a uma PON_PORT
+└── possui amostras de sinal
+└── possui amostras de tráfego
+└── pode ser autorizada via presets
+
+---
+
+# 4. SPEED_PROFILE
+
+Define os perfis de velocidade aplicados às ONUs.
+
+Responsabilidades:
+
+- Determinar velocidade de download
+- Determinar velocidade de upload
+- Associar VLAN de serviço
+
+Relacionamentos:
+
+SPEED_PROFILE
+└── pode ser aplicado a várias ONUs
+└── pode ser usado em presets de autorização
+
+---
+
+# 5. VLAN
+
+Representa uma VLAN utilizada na rede.
+
+Responsabilidades:
+
+- Segmentação de tráfego
+- Separação de redes de serviço e gerenciamento
+
+Relacionamentos:
+
+VLAN
+└── pertence a uma OLT
+└── pode ser utilizada em perfis de velocidade
+
+---
+
+# 6. LOCATION
+
+Representa a localização física de equipamentos.
+
+Responsabilidades:
+
+- Agrupar OLTs
+- Agrupar distribuidores ópticos
+
+Relacionamentos:
+
+LOCATION
+└── possui várias OLTs
+└── possui vários ODBs
+
+---
+
+# 7. ODB
+
+Representa um distribuidor óptico ou caixa de distribuição.
+
+Responsabilidades:
+
+- Organizar conexões de fibra
+- Agrupar ONUs por região
+
+Relacionamentos:
+
+ODB
+└── pertence a uma LOCATION
+└── pode agrupar várias ONUs
+
+---
+
+# 8. ONU_AUTHORIZATION_PRESET
+
+Define presets de configuração utilizados ao autorizar uma ONU.
+
+Responsabilidades:
+
+- Aplicar perfil de velocidade
+- Aplicar VLAN
+- Aplicar template de configuração
+
+Relacionamentos:
+
+ONU_AUTHORIZATION_PRESET
+└── utiliza SPEED_PROFILE
+└── pode utilizar VLAN
+└── pode utilizar TR069_PROFILE
+
+---
+
+# 9. TELEMETRIA DE REDE
+
+Sistema de coleta de métricas da rede.
+
+Sub-entidades:
+
+ONU_SIGNAL_SAMPLE
+ONU_TRAFFIC_SAMPLE
+OLT_HEALTH_SAMPLE
+UPLINK_SAMPLE
+
+Responsabilidades:
+
+- Monitoramento de rede
+- Geração de gráficos
+- Base para diagnóstico e automação
+
+---
+
+# 10. REPORT_TASK
+
+Representa tarefas de geração de relatórios.
+
+Responsabilidades:
+
+- Gerar relatórios operacionais
+- Exportar dados
+- Auditar eventos da rede
+
+---
+
+# 11. USER
+
+Representa usuários do sistema.
+
+Responsabilidades:
+
+- Operar o sistema
+- Autorizar ONUs
+- Executar diagnósticos
+- Gerar relatórios

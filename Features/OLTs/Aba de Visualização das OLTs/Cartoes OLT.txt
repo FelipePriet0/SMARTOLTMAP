@@ -1,0 +1,138 @@
+Objetivo
+
+Exibir e gerenciar os cartões (placas) instalados na OLT, incluindo informações sobre tipo de hardware, número de portas, status operacional e funções de cada slot.
+
+Também permite detectar novos cartões instalados na OLT e executar reinicialização individual de placas.
+
+CTAs
+Atualizar informações dos cartões OLT
+
+Atualiza os dados dos cartões instalados na OLT consultando novamente o equipamento.
+
+Função
+
+Recarrega informações de hardware
+
+Atualiza status das placas
+
+Atualiza versão de software detectada
+
+Atualiza número de portas disponíveis
+
+Detectar novos cartões
+
+Executa uma varredura na OLT para identificar novos cartões instalados fisicamente no equipamento.
+
+Função
+
+Detecta placas recém-instaladas
+
+Atualiza slots disponíveis
+
+Atualiza tipo de hardware detectado
+
+Informações exibidas (Tabela)
+
+A tabela apresenta os cartões instalados nos slots da OLT.
+
+Cada linha representa um slot da OLT.
+
+Colunas
+Slot
+
+Identificador do slot físico da OLT onde o cartão está instalado.
+
+Tipo
+
+Tipo do cartão instalado no slot.
+
+Exemplo:
+
+H805GPFD
+H802SCUN
+H806GPFD
+Tipo real
+
+Identificação do modelo real detectado pelo sistema ou pela OLT.
+
+Pode coincidir ou variar dependendo do firmware.
+
+Portos
+
+Quantidade de portas disponíveis no cartão.
+
+Exemplo:
+
+16 portas PON
+4 portas uplink
+SO
+
+Versão de software detectada no cartão.
+
+Exemplo:
+
+MA5600V800R018C00
+Status
+
+Estado operacional do cartão.
+
+Exemplo:
+
+Normal
+Erro
+Offline
+Inicializando
+Papel
+
+Função do cartão dentro da OLT.
+
+Possíveis valores:
+
+Principal
+
+Cartão responsável pela operação principal da OLT.
+
+Espera
+
+Cartão redundante (backup).
+
+Informações atualizadas
+
+Timestamp da última atualização das informações do cartão.
+
+Ações da tabela
+Cartão de reinicialização
+
+Permite reiniciar o cartão específico instalado no slot.
+
+Função
+
+envia comando de reboot para o cartão
+
+reinicializa apenas o módulo específico
+
+não reinicia a OLT inteira
+
+Uso comum
+
+resolver falhas de porta
+
+resetar módulos travados
+
+aplicar alterações de firmware
+
+Observação de arquitetura (importante para o Agent Code)
+
+Cada OLT possui:
+
+OLT
+ ├── Slots
+ │    ├── Cartão
+ │    │     ├── Tipo
+ │    │     ├── Portas
+ │    │     ├── Status
+ │    │     └── Papel
+
+Ou seja:
+
+OLT → possui → CARTÕES → possuem → PORTAS

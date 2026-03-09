@@ -1,0 +1,142 @@
+ONUs não autorizadas / pendentes de autorização
+
+Objeto
+
+ONU (Listagem de ONUs detectadas pela OLT na rede GPON que ainda não foram autorizadas no sistema)
+
+Inputs (Filtros)
+
+OLT (Dropdown com lista de OLTs disponíveis para filtrar as ONUs detectadas em uma OLT específica)
+
+CTA
+
+Atualizar → Recarrega a listagem de ONUs detectadas na OLT selecionada.
+
+Obs** A TABELA de ONUs não autorizadas são separadas pelas OLTs, ex: 
+
+Seção: Ações automáticas
+
+Painel que permite automatizar o processo de autorização de ONUs detectadas na rede.
+
+CTAs 
+
+Configurar ações
+Abre a configuração de regras automáticas para autorização de ONUs, permitindo definir critérios de provisionamento automático.
+
+AO CLICAR, ABRE MOCKUP: "Ações automáticas"
+
+Histórico de tarefas
+Abre o histórico das tarefas executadas pelo sistema relacionadas às ações automáticas, permitindo visualizar execuções anteriores.
+
+Endpoints prováveis
+
+Listar tarefas executadas
+
+GET /onu_auto_authorization/tasks
+
+Listar histórico detalhado
+
+GET /onu_auto_authorization/get_tasks_list
+
+Detalhe da execução
+
+GET /onu_auto_authorization/task/{id}
+
+Possível resposta:
+
+{
+  "task_id": 921,
+  "onu_sn": "ZTE12345ABC",
+  "olt": "OLT-CENTRO",
+  "pon_port": "0/1",
+  "rule_id": 5,
+  "status": "success",
+  "executed_at": "2026-03-06T14:33:00Z"
+}
+
+
+Atualizar
+Atualiza o estado das ações automáticas e da fila de tarefas associadas.
+
+Endpoint provável
+GET /onu_auto_authorization/refresh
+
+ou
+
+GET /onu_auto_authorization/status
+
+Interromper ações automáticas
+Interrompe temporariamente a execução das regras automáticas de autorização de ONUs.
+
+Pausar execução
+
+POST /onu_auto_authorization/pause
+
+Retomar execução
+
+POST /onu_auto_authorization/resume
+
+Consultar estado atual
+
+GET /onu_auto_authorization/state
+
+Exemplo resposta:
+
+{
+  "enabled": false,
+  "paused_at": "2026-03-06T15:10:00Z"
+}
+
+olt: x
+
+1 
+2 
+3 
+4 
+
+OLT: y
+
+5
+6
+7
+8
+
+--------------------------
+
+Informações exibidas (Lista)
+
+A tabela apresenta ONUs que foram detectadas pela rede GPON, mas ainda não foram provisionadas ou autorizadas no sistema.
+
+Cada linha representa uma ONU detectada e contém as seguintes colunas:
+
+Tipo PON
+Tecnologia PON utilizada na conexão da ONU (ex.: GPON).
+
+Quadro
+Identificação do board/slot da OLT onde a ONU foi detectada.
+
+Porta
+Porta PON específica dentro do board da OLT onde a ONU está conectada.
+
+Descrição PON
+Campo destinado à identificação ou descrição da porta PON.
+
+SN
+Serial Number da ONU detectada pela OLT.
+
+Tipo
+Modelo do equipamento ONU detectado.
+
+Ação
+CTA “Autorizar”, que inicia o processo de autorização/provisionamento da ONU na rede. Abrindo a Página "Autorizar" do sistema. 
+
+-----------------------
+
+CTAs adicionais
+
+Predefinições de autorização
+Abre a configuração de perfis ou parâmetros padrão utilizados para autorizar ONUs automaticamente com configurações pré-definidas.
+
+Adicionar ONU para autorização posterior
+Permite registrar a ONU detectada para ser autorizada posteriormente no sistema, sem realizar o provisionamento imediato.
+

@@ -1,0 +1,232 @@
+Objetivo
+
+Gerenciar as VLANs configuradas na OLT, utilizadas para segmentação de tráfego na rede GPON.
+
+Essa tela permite:
+
+criar VLANs
+
+remover VLANs
+
+associar VLANs a funções específicas da rede
+
+visualizar quantas ONUs utilizam cada VLAN
+
+Importante:
+
+As VLANs criadas aqui não são automaticamente aplicadas às portas uplink.
+Para que uma VLAN funcione no tráfego de rede, ela deve ser posteriormente configurada nas interfaces de uplink.
+
+CTAs Globais da Página
++ Adicionar VLAN
+
+Abre o formulário para criação de uma nova VLAN na OLT.
+
+Função:
+
+Permite definir:
+
+ID da VLAN
+
+descrição
+
+função da VLAN na rede
+
++ Adicionar várias VLANs
+
+Permite criar múltiplas VLANs em lote.
+
+Função:
+
+inserção de intervalos de VLAN
+
+criação massiva de VLANs
+
+Exemplo de uso:
+
+100 - 120
+
+Cria VLANs de 100 até 120.
+
+Excluir várias VLANs
+
+Permite excluir múltiplas VLANs simultaneamente.
+
+Função:
+
+seleção de múltiplos IDs de VLAN
+
+remoção em lote
+
+Aviso Informativo da Página
+
+Mensagem exibida na interface:
+
+As VLANs adicionadas aqui não serão aplicadas automaticamente às portas de uplink.
+Acesse as configurações de uplink e marque as VLANs nas interfaces desejadas.
+
+Significado:
+
+Criar a VLAN na OLT não garante que ela será transportada pela rede.
+É necessário permitir a VLAN nas portas uplink.
+
+Informações exibidas (Tabela)
+
+Cada linha representa uma VLAN configurada na OLT.
+
+Colunas
+ID da VLAN
+
+Identificador único da VLAN.
+
+Exemplos observados:
+
+21
+51
+59
+100
+150
+200
+250
+301
+350
+700
+1769
+3010
+Padrão para
+
+Define se essa VLAN está configurada como VLAN padrão para algum serviço.
+
+Exemplo observado:
+
+Nenhuma selecionada
+
+Possíveis usos:
+
+VLAN padrão de clientes
+
+VLAN padrão de gerenciamento
+
+Descrição
+
+Campo utilizado para identificar a VLAN.
+
+Exemplos observados:
+
+Neutra-PRONET-21
+teste
+VLAN-700-ZTE-04
+L2L-TECNOIT
+PONTO_DE_ACESSO_FÁCIL
+Utilizado para IPTV
+
+Define se a VLAN está configurada para tráfego de IPTV.
+
+Valor representado por checkbox.
+
+Quando habilitado:
+
+tráfego multicast pode ser tratado de forma específica.
+
+Utilizado para gerenciamento / VoIP
+
+Define se a VLAN está associada a serviços de:
+
+gerenciamento de ONUs
+
+tráfego VoIP
+
+DHCP Snooping
+
+Define se o DHCP Snooping está habilitado na VLAN.
+
+Função:
+
+Protege a rede contra servidores DHCP não autorizados.
+
+LAN para LAN
+
+Define se a VLAN permite comunicação LAN-to-LAN.
+
+Função:
+
+Permite comunicação direta entre clientes na mesma VLAN.
+
+ONUs
+
+Quantidade de ONUs que utilizam essa VLAN.
+
+Exemplos observados:
+
+0
+1
+8
+941
+1648
+
+Esse valor indica quantos clientes estão associados à VLAN.
+
+Ações da Tabela
+Excluir
+
+Remove a VLAN da OLT.
+
+⚠ Importante:
+Essa ação possui confirmação dupla para evitar remoção acidental.
+
+Fluxo de confirmação
+
+Primeira confirmação
+
+Modal de confirmação:
+
+Tem certeza que deseja excluir esta VLAN?
+
+Botões:
+
+Cancelar
+Continuar
+
+Segunda confirmação
+
+Nova confirmação de segurança:
+
+Esta ação removerá a VLAN da OLT.
+Confirme novamente para prosseguir.
+
+Botões:
+
+Cancelar
+Excluir VLAN
+Resultado esperado
+
+Após confirmação dupla:
+
+a VLAN é removida da OLT
+
+a linha correspondente desaparece da tabela
+
+o sistema atualiza a lista de VLANs
+
+Modelo de dados:
+
+OLT
+ └ VLANs
+    ├ VLAN ID
+    ├ Descrição
+    ├ Flags de uso
+    │   ├ IPTV
+    │   ├ VoIP
+    │   ├ DHCP Snooping
+    │   └ LAN-to-LAN
+    └ ONUs associadas
+Relação com outras abas
+
+Essa tela conecta diretamente com:
+
+Uplink
+Portas PON
+Perfis ONU
+Gerenciamento de ONU
+
+Porque as VLANs são utilizadas no provisionamento das ONUs.

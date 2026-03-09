@@ -1,0 +1,65 @@
+Objeto
+
+OLT (Formulário utilizado para cadastrar e integrar um novo equipamento OLT ao sistema de monitoramento e provisionamento da rede)
+
+Inputs
+
+Nome
+Campo para definir o nome de identificação da OLT no sistema.
+
+Endereço IP ou FQDN do OLT
+Campo para informar o endereço IP ou domínio utilizado para comunicação com a OLT.
+
+Porta TCP Telnet
+Porta utilizada para conexão Telnet com a OLT.
+
+Nome de usuário Telnet do OLT
+Credencial de usuário utilizada para autenticação Telnet no equipamento.
+
+Senha Telnet do OLT
+Credencial de senha utilizada para autenticação Telnet no equipamento.
+
+Comunidade SNMP somente leitura
+String de comunidade SNMP utilizada para consultas de leitura no equipamento.
+
+Observação exibida:
+A comunidade será criada automaticamente na OLT pelo sistema.
+
+Comunidade SNMP de leitura e gravação
+String de comunidade SNMP utilizada para operações de leitura e escrita.
+
+Observação exibida:
+A comunidade será criada automaticamente na OLT pelo sistema.
+
+Porta SNMP UDP
+Porta UDP utilizada para comunicação SNMP com o equipamento.
+
+Módulo IPTV
+Checkbox que permite habilitar suporte ao módulo de IPTV na OLT.
+
+Fabricante de OLT
+Dropdown contendo os fabricantes de equipamentos suportados pelo sistema (ex.: Huawei, ZTE).
+
+Versão de hardware OLT
+Dropdown contendo os modelos de hardware do fabricante selecionado.
+
+Tipos de PON suportados
+
+Seleção do tipo de tecnologia PON suportada pela OLT:
+
+GPON
+
+EPON
+
+GPON + EPON
+
+CTAs
+
+Salvar
+Registra a nova OLT no sistema com os parâmetros informados.
+
+Cancelar
+Cancela o processo de cadastro da OLT.
+
+Teste de conexão
+Executa um teste de comunicação entre o sistema e a OLT utilizando os parâmetros informados.

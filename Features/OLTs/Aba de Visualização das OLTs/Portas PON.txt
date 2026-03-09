@@ -1,0 +1,285 @@
+Objetivo
+
+Exibir e gerenciar todas as portas PON da OLT, permitindo monitoramento operacional da rede GPON, análise de sinal óptico, quantidade de ONUs conectadas e execução de ações administrativas sobre as portas e ONUs.
+
+As portas são agrupadas por slot da OLT, correspondendo aos cartões instalados no equipamento.
+
+CTAs Globais da Página
+Atualizar informações das portas PON
+
+Atualiza os dados de todas as portas PON consultando novamente a OLT.
+
+Função:
+
+atualizar status das portas
+
+atualizar quantidade de ONUs
+
+atualizar sinal óptico médio
+
+atualizar potência de transmissão
+
+Ative todas as portas PON
+
+Ativa administrativamente todas as portas PON da OLT.
+
+Função:
+
+remove estado de shutdown das portas
+
+garante que todas as portas estejam habilitadas para operação.
+
+Ativar busca automática
+
+Ativa o mecanismo de descoberta automática de ONUs nas portas PON.
+
+Função:
+
+detecta ONUs conectadas fisicamente
+
+permite que ONUs apareçam na lista de não autorizadas.
+
+Reinicie todas as ONUs
+
+Reinicia todas as ONUs conectadas na OLT.
+
+Função:
+
+envia comando de reboot para todas as ONUs da OLT.
+
+Estrutura da Página
+
+As portas são exibidas agrupadas por slot da OLT.
+
+Exemplo:
+
+Slot OLT 1
+Slot OLT 2
+Slot OLT 3
+Slot OLT 4
+
+Cada slot representa um cartão GPON instalado na OLT.
+
+Cada cartão possui várias portas PON.
+
+CTA por Slot
+Reinicie todas as ONUs no slot
+
+Reinicia todas as ONUs conectadas nas portas daquele slot específico.
+
+Função:
+
+envia comando de reboot para todas as ONUs do cartão selecionado.
+
+Informações exibidas (Tabela)
+
+Cada linha representa uma porta PON.
+
+Colunas
+Porta
+
+Número da porta PON dentro do cartão.
+
+Exemplo:
+
+0
+1
+2
+3
+...
+15
+Tipo
+
+Tipo da tecnologia PON utilizada.
+
+Exemplo:
+
+GPON
+Estado administrativo
+
+Indica se a porta está habilitada ou desabilitada administrativamente.
+
+Valores possíveis:
+
+Habilitado
+Desabilitado
+Status
+
+Estado operacional da porta.
+
+Exemplos observados:
+
+Subir / Encontrar automaticamente
+Para baixo / Busca automática
+
+Significado:
+
+Subir / Encontrar automaticamente
+
+Porta ativa e configurada para detectar ONUs automaticamente.
+
+Para baixo / Busca automática
+
+Porta operacionalmente down ou sem ONUs conectadas.
+
+ONUs
+
+Quantidade de ONUs conectadas à porta.
+
+São exibidos dois valores:
+
+Online
+Total
+
+Exemplo:
+
+Online: 8
+Total: 11
+
+Significado:
+
+Online → ONUs ativas no momento
+
+Total → ONUs registradas naquela porta
+
+Sinal médio
+
+Potência óptica média das ONUs conectadas à porta.
+
+Exemplo:
+
+-22.82
+-25.61
+-23.31
+
+Unidade:
+
+dBm
+
+Esse indicador ajuda a detectar problemas de fibra ou atenuação.
+
+Descrição
+
+Campo para identificação ou anotação da porta.
+
+Exemplo:
+
+bairro
+cliente corporativo
+backbone
+
+No print atual está vazio.
+
+Faixa
+
+Distância operacional suportada pela porta.
+
+Exemplo observado:
+
+0 - 20000 m
+
+Representa o alcance máximo da rede PON.
+
+Potência de transmissão
+
+Potência óptica transmitida pela porta.
+
+Exemplo:
+
+7.11 dBm
+7.31 dBm
+7.04 dBm
+
+Esse valor representa a potência enviada pela OLT.
+
+Ações da Tabela
+
+Cada porta possui duas ações administrativas.
+
+Configurar
+
+Abre a página de configuração da porta PON.
+
+Permite alterar configurações como:
+
+parâmetros da porta
+
+limites de potência
+
+parâmetros de descoberta de ONU
+
+descrição da porta
+
+Reiniciar ONUs
+
+Reinicia todas as ONUs conectadas naquela porta PON.
+
+Função:
+
+envia comando de reboot para as ONUs daquela porta específica.
+
+Indicadores Visuais
+
+A interface utiliza cores para indicar estado.
+
+Verde
+
+Operação normal.
+
+Exemplo:
+
+Subir / Encontrar automaticamente
+Vermelho
+
+Problema ou porta inativa.
+
+Exemplo:
+
+Para baixo / Busca automática
+Estrutura de dados inferida do sistema
+
+A página revela claramente a modelagem real do sistema.
+
+Estrutura correta:
+
+OLT
+ ├ SLOT
+ │
+ ├ CARD
+ │
+ ├ PON PORT
+ │
+ └ ONU
+
+Ou seja:
+
+OLT
+ └ SLOT
+    └ CARTÃO
+       └ PORTA PON
+          └ ONU
+Observação importante (engenharia reversa)
+
+Essa tela também revela 3 subsistemas importantes do SmartOLT:
+
+1️⃣ Monitoramento óptico
+2️⃣ Descoberta automática de ONUs
+3️⃣ Controle administrativo de portas PON
+
+Esses três módulos são centrais para qualquer NMS de ISP.
+
+💡 Dica importante para o seu projeto
+
+Se você estiver reconstruindo esse sistema, essa tela deve ser construída como:
+
+monitoramento em tempo real
+
+não apenas uma tabela.
+
+Isso significa:
+
+polling da OLT
+
+refresh automático
+
+indicadores visuais de sinal.

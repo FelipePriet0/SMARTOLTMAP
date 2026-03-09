@@ -1,0 +1,146 @@
+Objetivo
+
+Configurar listas de controle de acesso (ACL) que definem quais endereços IP podem se conectar remotamente às ONUs.
+
+Essa funcionalidade permite restringir o acesso remoto às ONUs apenas a dispositivos autorizados, como:
+
+computadores de suporte técnico
+
+máquinas de administração
+
+servidores internos da empresa
+
+sistemas de monitoramento
+
+Essas ACLs funcionam como um firewall de acesso remoto às ONUs.
+
+Funcionamento
+
+Os endereços IP configurados nas listas de ACL terão permissão para acessar remotamente as ONUs quando a opção:
+
+Permitir acesso remoto
+
+estiver habilitada na configuração da ONU.
+
+Compatibilidade
+
+Segundo a interface do sistema:
+
+ONU MGMT IPs ou WAN IPs
+apenas para ONUs ZTE
+
+Ou seja, essa funcionalidade é aplicada apenas para ONUs do fabricante ZTE.
+
+Estado da Página (quando não há ACLs)
+
+Mensagem exibida:
+
+Nenhuma lista de acesso encontrada
+
+Significa que nenhuma ACL foi configurada para permitir acesso remoto às ONUs.
+
+CTA da Página
+Editar listas de acesso
+
+Abre a página de configuração das listas de ACL.
+
+Função:
+
+Permite definir quais endereços IP podem acessar remotamente as ONUs.
+
+Página: Editar listas de acesso
+Objetivo
+
+Configurar até 4 listas de ACL contendo endereços IP autorizados a acessar ONUs remotamente.
+
+Cada lista pode conter múltiplos IPs ou redes.
+
+Formato dos endereços IP permitidos
+
+O sistema aceita os seguintes formatos:
+
+IP individual
+5.5.5.5/32
+Rede CIDR
+2.2.2.0/24
+Intervalo de IPs
+2.2.2.0 - 2.2.2.7
+Campos disponíveis
+Lista de acesso 1
+
+Campo para inserir IPs autorizados pertencentes à primeira lista ACL.
+
+Exemplo de uso:
+
+computadores do suporte técnico
+
+Lista de acesso 2
+
+Campo para inserir IPs autorizados pertencentes à segunda lista ACL.
+
+Exemplo de uso:
+
+máquinas administrativas
+
+Lista de acesso 3
+
+Campo para inserir IPs adicionais autorizados.
+
+Exemplo de uso:
+
+servidores internos
+
+Lista de acesso 4
+
+Campo para inserir IPs adicionais autorizados.
+
+Exemplo de uso:
+
+sistemas externos autorizados
+
+Comportamento do sistema
+
+Após salvar as listas:
+
+os IPs registrados passam a ter permissão para acessar remotamente as ONUs
+
+a permissão só é aplicada se a opção Permitir acesso remoto estiver habilitada na ONU
+
+CTAs da Página
+Salvar
+
+Salva as listas de ACL configuradas.
+
+Resultado esperado
+
+as ACLs são registradas na OLT
+
+os IPs passam a ser reconhecidos como autorizados para acesso remoto às ONUs
+
+Cancelar
+
+Cancela a edição e retorna à página de ACLs remotas sem salvar alterações.
+
+Estrutura lógica inferida
+
+Essa funcionalidade revela a seguinte estrutura no sistema:
+
+OLT
+ └ ACLs remotas
+     ├ ACL lista 1
+     ├ ACL lista 2
+     ├ ACL lista 3
+     └ ACL lista 4
+
+Cada lista contém:
+
+IPs autorizados
+Relação com outras funcionalidades
+
+Essa configuração interage diretamente com:
+
+Configuração da ONU
+Gerenciamento remoto da ONU
+Acesso remoto a interfaces web das ONUs
+
+Porque define quem pode acessar remotamente os dispositivos da rede GPON.
